@@ -143,7 +143,9 @@ pub trait GetTable {
 /// This patten only exists as part of the naive LMDB refactor.
 #[deprecated = "lmdb: naive"]
 #[derive(Clone, Debug)]
-pub struct Table {}
+pub struct Table {
+    name: TableName,
+}
 
 impl Table {
     pub fn get<R: Readable, K: AsRef<[u8]>>(
